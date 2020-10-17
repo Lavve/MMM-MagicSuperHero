@@ -1,6 +1,8 @@
 Module.register('MMM-MagicSuperHero', {
   defaults: {
     showPowerImage: true,
+    showRoundPowerImage: false,
+    showPowerImageGrey: false,
     showPowerStats: true,
     showPowerAppearence: true,
     appearanceUnit: 'metric', // metric or imperial
@@ -11,6 +13,7 @@ Module.register('MMM-MagicSuperHero', {
     Log.info('Starting module: ' + this.name);
 
     this.hero = {};
+    this.loaded = false;
 
     this.config.updateInterval = this.config.updateInterval < 3600000 ? 3600000 : this.config.updateInterval;
     this.getCharacter();
@@ -25,12 +28,20 @@ Module.register('MMM-MagicSuperHero', {
     return ['MMM-MagicSuperHero.css'];
   },
 
+  getTranslations: function () {
+    return {
+      en: 'translations/en.json',
+      sv: 'translations/sv.json',
+    };
+  },
+
   getCharacter: function () {
     this.sendSocketNotification('GET_SUPERHERO', this.config);
   },
 
   socketNotificationReceived: function (notification, payload) {
     if (notification === 'SUPERHERO_RESULT') {
+      this.loaded = true;
       this.hero = payload;
       this.updateDom(1000);
     }
@@ -39,16 +50,17 @@ Module.register('MMM-MagicSuperHero', {
   getDom: function () {
     var wrapper = document.createElement('div');
 
+    if (!this.loaded) {
+      wrapper.innerHTML = this.translate('LOADING');
+      wrapper.className = 'dimmed light small';
+      return wrapper;
+    }
+
     Log.info('SUPERHERO DATA', this.hero);
 
     if (Object.keys(this.hero).length !== 0) {
       var heroWrapper = document.createElement('div');
       heroWrapper.className = 'MMM-MagicSuperHero-container';
-
-      // var name = document.createElement('div');
-      // name.classList.add('mmm-hero-name');
-      // name.innerHTML = this.hero.name;
-      // heroWrapper.appendChild(name);
 
       if (this.config.showPowerStats) {
         var statTable = document.createElement('table');
@@ -57,9 +69,9 @@ Module.register('MMM-MagicSuperHero', {
 
         for (var stat in this.hero.powerstats) {
           var statValue = this.hero.powerstats[stat];
-          var dateRow = document.createElement('tr');
+          var dataRow = document.createElement('tr');
           var key = document.createElement('td');
-          key.innerHTML = stat.charAt(0).toUpperCase() + stat.slice(1);
+          key.innerHTML = this.translate(stat);
 
           var valCell = document.createElement('td');
           var valWrap = document.createElement('div');
@@ -70,9 +82,9 @@ Module.register('MMM-MagicSuperHero', {
 
           valWrap.appendChild(val);
           valCell.appendChild(valWrap);
-          dateRow.appendChild(key);
-          dateRow.appendChild(valCell);
-          statTable.appendChild(dateRow);
+          dataRow.appendChild(key);
+          dataRow.appendChild(valCell);
+          statTable.appendChild(dataRow);
         }
         heroWrapper.appendChild(statTable);
       }
@@ -84,36 +96,66 @@ Module.register('MMM-MagicSuperHero', {
 
         for (var app in this.hero.appearance) {
           var val = this.hero.appearance[app];
-          var dateRow = document.createElement('tr');
-          var key = document.createElement('td');
-          key.innerHTML = app.charAt(0).toUpperCase() + app.slice(1);
 
-          var valCell = document.createElement('td');
-          if (app === 'height') {
-            val = this.config.appearanceUnit === 'metric' ? val[1] : val[0];
-          }
-          if (app === 'weight') {
-            val = this.config.appearanceUnit === 'metric' ? val[1] : val[0];
-          }
-          valCell.innerHTML = val;
+          if (val) {
+            var dataRow = document.createElement('tr');
+            var key = document.createElement('td');
+            key.innerHTML = this.translate(app);
 
-          dateRow.appendChild(key);
-          dateRow.appendChild(valCell);
-          appTable.appendChild(dateRow);
+            var valCell = document.createElement('td');
+            switch (app) {
+              case 'height':
+                val = this.config.appearanceUnit === 'metric' ? val[1] : val[0];
+                val = parseInt(val, 10) > 0 ? val : '-';
+                break;
+              case 'weight':
+                val = this.config.appearanceUnit === 'metric' ? val[1] : val[0];
+                val = parseInt(val, 10) > 0 ? val : '-';
+                break;
+              case 'gender':
+                val = val !== '-' ? this.translate(val.toLowerCase()) : '-';
+                break;
+              default:
+                val = this.translate(val.toLowerCase());
+            }
+
+            valCell.innerHTML = val.charAt(0).toUpperCase() + val.slice(1);
+
+            if (val !== '-') {
+              dataRow.appendChild(key);
+              dataRow.appendChild(valCell);
+              appTable.appendChild(dataRow);
+            }
+          }
         }
         heroWrapper.appendChild(appTable);
       }
 
       if (this.config.showPowerImage) {
+        var imgWrapper = document.createElement('div');
+        imgWrapper.classList.add('mmm-hero-img-wrapper');
+
+        if (this.config.showRoundPowerImage) {
+          imgWrapper.classList.add('round');
+        }
+        if (this.config.showPowerImageGrey) {
+          imgWrapper.classList.add('grey');
+        }
+
         var img = document.createElement('img');
         img.src = this.hero.images.sm;
         img.classList.add('mmm-hero-img');
-        heroWrapper.appendChild(img);
+        imgWrapper.appendChild(img);
+        heroWrapper.appendChild(imgWrapper);
       }
 
       this.data.header = this.hero.name;
 
       wrapper.appendChild(heroWrapper);
+    } else {
+      setTimeout(function () {
+        this.getCharacter();
+      }, 10 * 1000);
     }
 
     return wrapper;

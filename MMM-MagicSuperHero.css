@@ -1,6 +1,8 @@
 .MMM-MagicSuperHero-container {
   display: block;
   text-align: center;
+  max-width: 280px;
+  margin: 0 auto;
 }
 
 .MMM-MagicSuperHero-container .mmm-hero-name {
@@ -41,6 +43,19 @@
   text-align: right;
 }
 
+.MMM-MagicSuperHero-container .mmm-hero-img-wrapper {
+  text-align: center;
+}
+.MMM-MagicSuperHero-container .mmm-hero-img-wrapper.round {
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.MMM-MagicSuperHero-container .mmm-hero-img-wrapper.grey .mmm-hero-img {
+  filter: grayscale(1);
+}
 .MMM-MagicSuperHero-container .mmm-hero-img {
   max-width: 100%;
 }

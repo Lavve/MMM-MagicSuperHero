@@ -4,7 +4,7 @@ A module for [MagicMirror²](https://github.com/MichMich/MagicMirror) that shows
 
 ## Install
 
-1. Clone repository into `../modules/` inside your MagicMirror folder.
+1. Clone repository into `../modules/` inside your MagicMirror folder:
    - `git clone https://github.com/Lavve/MMM-MagicSuperHero`
 2. Run `cd MMM-MagicSuperHero && npm install`
 3. Add the module to the MagicMirror config.js
@@ -16,6 +16,8 @@ A module for [MagicMirror²](https://github.com/MichMich/MagicMirror) that shows
     header: 'Super hero',
     config: {
         showPowerImage: true,
+        showRoundPowerImage: false,
+        showPowerImageGrey: false,
         showPowerStats: true,
         showPowerAppearence: true,
         appearanceUnit: 'metric',
@@ -29,6 +31,8 @@ A module for [MagicMirror²](https://github.com/MichMich/MagicMirror) that shows
 | Configuration       | Default          | Description                                                      |
 | ------------------- | ---------------- | ---------------------------------------------------------------- |
 | showPowerImage      | `true`           | (bool) Show image                                                |
+| showRoundPowerImage | `false`          | (bool) Show round image                                          |
+| showPowerImageGrey  | `false`          | (bool) Show image in greyscale                                   |
 | showPowerStats      | `true`           | (bool) Show power statistics                                     |
 | showPowerAppearence | `true`           | (bool) Show appearance                                           |
 | appearanceUnit      | `'metric'`       | (str) 'metric' or 'imperal' units                                |
@@ -36,4 +40,4 @@ A module for [MagicMirror²](https://github.com/MichMich/MagicMirror) that shows
 
 ## Collaborate
 
-Pull requests are welcome.
+Pull requests and translations are welcome.
