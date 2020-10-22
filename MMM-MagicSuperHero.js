@@ -4,6 +4,7 @@ Module.register('MMM-MagicSuperHero', {
     showRoundPowerImage: false,
     showPowerImageGrey: false,
     showPowerStats: true,
+    showPowerStatsColors: true,
     showPowerAppearence: true,
     appearanceUnit: 'metric', // metric or imperial
     updateInterval: 60 * 60 * 1000,
@@ -78,6 +79,9 @@ Module.register('MMM-MagicSuperHero', {
           valWrap.classList.add('superhero__statwrap');
           var val = document.createElement('div');
           val.classList.add('superhero__statval');
+          if (this.config.showPowerStatsColors) {
+            val.classList.add(stat.toLowerCase());
+          }
           val.style.width = statValue + '%';
 
           valWrap.appendChild(val);

@@ -19,6 +19,7 @@ A module for [MagicMirror²](https://github.com/MichMich/MagicMirror) that shows
         showRoundPowerImage: false,
         showPowerImageGrey: false,
         showPowerStats: true,
+        showPowerStatsColors: true,
         showPowerAppearence: true,
         appearanceUnit: 'metric',
         updateInterval: 60 * 60 * 1000,
@@ -28,15 +29,16 @@ A module for [MagicMirror²](https://github.com/MichMich/MagicMirror) that shows
 
 ## Configuration options
 
-| Configuration       | Default          | Description                                                      |
-| ------------------- | ---------------- | ---------------------------------------------------------------- |
-| showPowerImage      | `true`           | (bool) Show image                                                |
-| showRoundPowerImage | `false`          | (bool) Show round image                                          |
-| showPowerImageGrey  | `false`          | (bool) Show image in greyscale                                   |
-| showPowerStats      | `true`           | (bool) Show power statistics                                     |
-| showPowerAppearence | `true`           | (bool) Show appearance                                           |
-| appearanceUnit      | `'metric'`       | (str) 'metric' or 'imperal' units                                |
-| updateInterval      | `60 * 60 * 1000` | (int) Time in milliseconds for next character. Default every 1h. |
+| Configuration        | Default          | Description                                                      |
+| -------------------- | ---------------- | ---------------------------------------------------------------- |
+| showPowerImage       | `true`           | (bool) Show image                                                |
+| showRoundPowerImage  | `false`          | (bool) Show round image                                          |
+| showPowerImageGrey   | `false`          | (bool) Show image in greyscale                                   |
+| showPowerStats       | `true`           | (bool) Show power statistics                                     |
+| showPowerStatsColors | `true`           | (bool) Show power bars in color                                  |
+| showPowerAppearence  | `true`           | (bool) Show appearance                                           |
+| appearanceUnit       | `'metric'`       | (str) 'metric' or 'imperal' units                                |
+| updateInterval       | `60 * 60 * 1000` | (int) Time in milliseconds for next character. Default every 1h. |
 
 ## Collaborate
 

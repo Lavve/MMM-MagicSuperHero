@@ -31,6 +31,24 @@
   background: #666;
   height: 25px;
 }
+.MMM-MagicSuperHero-container .superhero__statval.intelligence {
+  background: #bd2c33;
+}
+.MMM-MagicSuperHero-container .superhero__statval.strength {
+  background: #af6b04;
+}
+.MMM-MagicSuperHero-container .superhero__statval.speed {
+  background: #c7ba00;
+}
+.MMM-MagicSuperHero-container .superhero__statval.durability {
+  background: #3da862;
+}
+.MMM-MagicSuperHero-container .superhero__statval.power {
+  background: #2b6ab3;
+}
+.MMM-MagicSuperHero-container .superhero__statval.combat {
+  background: #9000ad;
+}
 
 .MMM-MagicSuperHero-container .mmm-hero-app {
   margin: 0 0 15px;
