@@ -41,5 +41,6 @@ A module for [MagicMirror²](https://github.com/MichMich/MagicMirror) that shows
 | updateInterval       | `60 * 60 * 1000` | (int) Time in milliseconds for next character. Default every 1h. |
 
 ## Collaborate
-
 Pull requests and translations are welcome.
+## Donations
+[Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=SM9XRXUPPJM84&item_name=%40lavve+MagicMiror+Modules&currency_code=SEK) if you like my modules! <3
