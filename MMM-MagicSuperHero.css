@@ -1,8 +1,24 @@
 .MMM-MagicSuperHero-container {
-  display: block;
+  display: flex;
+  flex-flow: column;
   text-align: center;
   max-width: 280px;
   margin: 0 auto;
+}
+.MMM-MagicSuperHero-container.top {
+  flex-flow: column-reverse;
+}
+.MMM-MagicSuperHero-container.right {
+  flex-flow: row;
+}
+.MMM-MagicSuperHero-container.right .mmm-hero-img-wrapper {
+  margin-left: 10px !important;
+}
+.MMM-MagicSuperHero-container.left {
+  flex-flow: row-reverse;
+}
+.MMM-MagicSuperHero-container.left .mmm-hero-img-wrapper {
+  margin-right: 10px !important;
 }
 
 .MMM-MagicSuperHero-container .mmm-hero-name {
@@ -20,8 +36,12 @@
 .MMM-MagicSuperHero-container .mmm-hero-stats td {
   width: 50%;
 }
+.MMM-MagicSuperHero-container .mmm-hero-stats td:nth-child(odd) {
+  padding-right: 10px;
+}
 .MMM-MagicSuperHero-container .mmm-hero-stats td:nth-child(even) {
   text-align: right;
+  min-width: 60px;
 }
 .MMM-MagicSuperHero-container .superhero__statwrap {
   width: 100%;

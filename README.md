@@ -23,24 +23,29 @@ A module for [MagicMirror²](https://github.com/MichMich/MagicMirror) that shows
         showPowerAppearence: true,
         appearanceUnit: 'metric',
         updateInterval: 60 * 60 * 1000,
+        imagePosition: 'bottom',
     }
 },
 ```
 
 ## Configuration options
 
-| Configuration        | Default          | Description                                                      |
-| -------------------- | ---------------- | ---------------------------------------------------------------- |
-| showPowerImage       | `true`           | (bool) Show image                                                |
-| showRoundPowerImage  | `false`          | (bool) Show round image                                          |
-| showPowerImageGrey   | `false`          | (bool) Show image in greyscale                                   |
-| showPowerStats       | `true`           | (bool) Show power statistics                                     |
-| showPowerStatsColors | `true`           | (bool) Show power bars in color                                  |
-| showPowerAppearence  | `true`           | (bool) Show appearance                                           |
-| appearanceUnit       | `'metric'`       | (str) 'metric' or 'imperal' units                                |
-| updateInterval       | `60 * 60 * 1000` | (int) Time in milliseconds for next character. Default every 1h. |
+| Configuration        | Default          | Type   | Description                                                                                             |
+| -------------------- | ---------------- | ------ | ------------------------------------------------------------------------------------------------------- |
+| showPowerImage       | `true`           | (bool) | Show image                                                                                              |
+| showRoundPowerImage  | `false`          | (bool) | Show round image                                                                                        |
+| showPowerImageGrey   | `false`          | (bool) | Show image in greyscale                                                                                 |
+| showPowerStats       | `true`           | (bool) | Show power statistics                                                                                   |
+| showPowerStatsColors | `true`           | (bool) | Show power bars in color                                                                                |
+| showPowerAppearence  | `true`           | (bool) | Show appearance                                                                                         |
+| appearanceUnit       | `'metric'`       | (str)  | Valid values are `'metric'` and `'imperal'`                                                             |
+| updateInterval       | `60 * 60 * 1000` | (int)  | Time in milliseconds for next character. Default every 1h. Minimum is 3600000.                          |
+| imagePosition        | `'bottom'`       | (str)  | Possible values are `'top'`, `'right'`, `'bottom'`, `'left'`, `'alterHorizontal'` and `'alterVertical'` |
 
 ## Collaborate
-Pull requests and translations are welcome.
+
+Pull requests and suggestions for improvements are more than welcome.
+
 ## Donations
+
 [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=SM9XRXUPPJM84&item_name=%40lavve+MagicMiror+Modules&currency_code=SEK) if you like my modules! <3

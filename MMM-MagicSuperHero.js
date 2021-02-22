@@ -8,7 +8,10 @@ Module.register('MMM-MagicSuperHero', {
     showPowerAppearence: true,
     appearanceUnit: 'metric', // metric or imperial
     updateInterval: 60 * 60 * 1000,
+    imagePosition: 'bottom',
   },
+
+  isAlter: true,
 
   start: function () {
     Log.info('Starting module: ' + this.name);
@@ -60,8 +63,23 @@ Module.register('MMM-MagicSuperHero', {
     Log.info('SUPERHERO DATA', this.hero);
 
     if (Object.keys(this.hero).length !== 0) {
-      var heroWrapper = document.createElement('div');
-      heroWrapper.className = 'MMM-MagicSuperHero-container';
+      var heroWrapper = document.createElement('div'),
+        heroTableWrapper = document.createElement('div'),
+        imgPos = this.config.imagePosition;
+
+      if (this.config.imagePosition === 'alterHorizontal') {
+        imgPos = this.isAlter ? 'left' : 'right';
+        this.isAlter = !this.isAlter;
+      } else if (this.config.imagePosition === 'alterVertical') {
+        imgPos = this.isAlter ? 'top' : 'bottom';
+        this.isAlter = !this.isAlter;
+      } else {
+        imgPos = this.config.imagePosition;
+      }
+
+      heroWrapper.classList.add('MMM-MagicSuperHero-container');
+      heroWrapper.classList.add(imgPos);
+      heroTableWrapper.classList.add('mmm-table-wrapper');
 
       if (this.config.showPowerStats) {
         var statTable = document.createElement('table');
@@ -90,7 +108,7 @@ Module.register('MMM-MagicSuperHero', {
           dataRow.appendChild(valCell);
           statTable.appendChild(dataRow);
         }
-        heroWrapper.appendChild(statTable);
+        heroTableWrapper.appendChild(statTable);
       }
 
       if (this.config.showPowerAppearence) {
@@ -132,8 +150,10 @@ Module.register('MMM-MagicSuperHero', {
             }
           }
         }
-        heroWrapper.appendChild(appTable);
+        heroTableWrapper.appendChild(appTable);
       }
+
+      heroWrapper.appendChild(heroTableWrapper);
 
       if (this.config.showPowerImage) {
         var imgWrapper = document.createElement('div');
