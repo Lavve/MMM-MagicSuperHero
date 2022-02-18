@@ -11,8 +11,10 @@ module.exports = NodeHelper.create({
   },
 
   getSuperHero: function () {
-    var charId = this.getRandomInt(1, 731);
-    var url = 'https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/id/' + charId + '.json';
+    var url =
+      'https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/id/' +
+      this.getRandomInt(1, 731) +
+      '.json';
 
     request(
       {
@@ -22,8 +24,9 @@ module.exports = NodeHelper.create({
       (error, response, body) => {
         if (!error && response.statusCode == 200) {
           var result = JSON.parse(body);
-          console.log('SUPER HERO', result);
           this.sendSocketNotification('SUPERHERO_RESULT', result);
+        } else {
+          console.warn(error, response);
         }
       }
     );

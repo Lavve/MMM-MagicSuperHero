@@ -1,8 +1,8 @@
 {
   "name": "mmm-magicsuperhero",
   "version": "1.0.0",
-  "description": "A module for MagicMirror² (https://github.com/MichMich/MagicMirror) that shows a Marvel character",
-  "main": "MMM-MagicMarvel.js",
+  "description": "A module for MagicMirror² (https://github.com/MichMich/MagicMirror) that shows super heroes",
+  "main": "MMM-MagicSuperHero.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

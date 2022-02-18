@@ -5,78 +5,93 @@
   max-width: 280px;
   margin: 0 auto;
 }
+
 .MMM-MagicSuperHero-container.top {
   flex-flow: column-reverse;
 }
+
 .MMM-MagicSuperHero-container.right {
   flex-flow: row;
 }
+
 .MMM-MagicSuperHero-container.right .mmm-hero-img-wrapper {
-  margin-left: 10px !important;
+  margin-left: 1rem !important;
 }
+
 .MMM-MagicSuperHero-container.left {
   flex-flow: row-reverse;
 }
+
 .MMM-MagicSuperHero-container.left .mmm-hero-img-wrapper {
-  margin-right: 10px !important;
+  margin-right: 1rem !important;
 }
 
 .MMM-MagicSuperHero-container .mmm-hero-name {
-  font-size: 30px;
-  line-height: 1;
-  color: #aaa;
   text-align: center;
-  margin: 0 0 15px;
+  margin: 0 0 1rem;
 }
 
 .MMM-MagicSuperHero-container .mmm-hero-stats {
-  margin: 0 0 15px;
+  margin: 0 0 1rem;
   text-align: left;
 }
+
 .MMM-MagicSuperHero-container .mmm-hero-stats td {
   width: 50%;
 }
+
 .MMM-MagicSuperHero-container .mmm-hero-stats td:nth-child(odd) {
-  padding-right: 10px;
+  padding-right: 1rem;
 }
+
 .MMM-MagicSuperHero-container .mmm-hero-stats td:nth-child(even) {
   text-align: right;
   min-width: 60px;
 }
+
 .MMM-MagicSuperHero-container .superhero__statwrap {
   width: 100%;
   border: 1px solid #666;
 }
+
 .MMM-MagicSuperHero-container .superhero__statval {
   background: #666;
   height: 25px;
 }
+
 .MMM-MagicSuperHero-container .superhero__statval.intelligence {
   background: #bd2c33;
 }
+
 .MMM-MagicSuperHero-container .superhero__statval.strength {
   background: #af6b04;
 }
+
 .MMM-MagicSuperHero-container .superhero__statval.speed {
   background: #c7ba00;
 }
+
 .MMM-MagicSuperHero-container .superhero__statval.durability {
   background: #3da862;
 }
+
 .MMM-MagicSuperHero-container .superhero__statval.power {
   background: #2b6ab3;
 }
+
 .MMM-MagicSuperHero-container .superhero__statval.combat {
   background: #9000ad;
 }
 
 .MMM-MagicSuperHero-container .mmm-hero-app {
-  margin: 0 0 15px;
+  margin: 0 0 1rem;
   text-align: left;
 }
+
 .MMM-MagicSuperHero-container .mmm-hero-app td {
   width: 50%;
 }
+
 .MMM-MagicSuperHero-container .mmm-hero-app td:nth-child(even) {
   text-align: right;
 }
@@ -84,6 +99,7 @@
 .MMM-MagicSuperHero-container .mmm-hero-img-wrapper {
   text-align: center;
 }
+
 .MMM-MagicSuperHero-container .mmm-hero-img-wrapper.round {
   width: 160px;
   height: 160px;
@@ -91,9 +107,11 @@
   border-radius: 50%;
   margin: 0 auto;
 }
+
 .MMM-MagicSuperHero-container .mmm-hero-img-wrapper.grey .mmm-hero-img {
   filter: grayscale(1);
 }
+
 .MMM-MagicSuperHero-container .mmm-hero-img {
   max-width: 100%;
 }

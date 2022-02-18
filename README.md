@@ -32,20 +32,20 @@ A module for [MagicMirror²](https://github.com/MichMich/MagicMirror) that shows
 
 | Configuration        | Default          | Type   | Description                                                                                             |
 | -------------------- | ---------------- | ------ | ------------------------------------------------------------------------------------------------------- |
-| showPowerImage       | `true`           | (bool) | Show image                                                                                              |
-| showRoundPowerImage  | `false`          | (bool) | Show round image                                                                                        |
+| showPowerImage       | `true`           | (bool) | Show a picture of the super hero                                                                                              |
+| showRoundPowerImage  | `false`          | (bool) | Show round image. If `true` the picture can be cropped in a strange way                                                                                         |
 | showPowerImageGrey   | `false`          | (bool) | Show image in greyscale                                                                                 |
 | showPowerStats       | `true`           | (bool) | Show power statistics                                                                                   |
-| showPowerStatsColors | `true`           | (bool) | Show power bars in color                                                                                |
+| showPowerStatsColors | `true`           | (bool) | Show power bars in bw or color                                                                                |
 | showPowerAppearence  | `true`           | (bool) | Show appearance                                                                                         |
-| appearanceUnit       | `'metric'`       | (str)  | Valid values are `'metric'` and `'imperal'`                                                             |
-| updateInterval       | `60 * 60 * 1000` | (int)  | Time in milliseconds for next character. Default every 1h. Minimum is 3600000.                          |
-| imagePosition        | `'bottom'`       | (str)  | Possible values are `'top'`, `'right'`, `'bottom'`, `'left'`, `'alterHorizontal'` and `'alterVertical'` |
+| appearanceUnit       | `'metric'`       | (str)  | Valid values are `'metric'` and `'imperal'`. Default is what is used in config`                                                             |
+| updateInterval       | `60 * 60 * 1000` | (int)  | Time in milliseconds for next character. Default every 1h. Minimum is `3600000` (1 hour).                          |
+| imagePosition        | `'bottom'`       | (str)  | Possible values are `'top'`, `'right'`, `'bottom'` or `'left'` |
 
 ## Collaborate
 
-Pull requests and suggestions for improvements are more than welcome.
+Pull requests, translations and suggestions for improvements are more than welcome.
 
 ## Donations
 
-[Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=SM9XRXUPPJM84&item_name=%40lavve+MagicMiror+Modules&currency_code=SEK) if you like my modules! <3
+[🍻 Buy me a beer](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=SM9XRXUPPJM84&item_name=%40lavve+MagicMiror+Modules) if you like my modules! ❤️
